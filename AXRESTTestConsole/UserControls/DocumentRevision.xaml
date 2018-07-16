@@ -1,0 +1,29 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.DocumentRevision"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+      xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+      d:DesignHeight="400" d:DesignWidth="600">
+
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Name="lbLinks" Grid.Row="1"></ListBox>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Delete">
+            </TabItem>
+        </TabControl>
+        <Label Margin="0,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Document Revision:</Label>
+        <ComboBox Name="cbDocRevisions" Width="240" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="120,30,0,0"></ComboBox>
+    </Grid>
+</my:BaseUserControl>

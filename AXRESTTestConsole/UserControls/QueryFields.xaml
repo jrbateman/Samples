@@ -1,0 +1,24 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.QueryFields"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d"
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <DataGrid Name="dgQueryFields" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="SearchName" Binding="{Binding SearchName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="FieldLength" Binding="{Binding FieldLength}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="QueryValue" Binding="{Binding QueryValue}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

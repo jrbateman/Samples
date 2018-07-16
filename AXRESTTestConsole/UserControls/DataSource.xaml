@@ -1,0 +1,51 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.DataSource"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <my:BaseUserControl.Resources>
+        <convert:InverseBooleanConverter x:Key="InverseBooleanConverter"></convert:InverseBooleanConverter>
+    </my:BaseUserControl.Resources>
+    <Grid>
+
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+                        <Label Margin="0,0,9,0">DataSources:</Label>
+                        <ComboBox Name="cbDataSources" Width="180"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                        <CheckBox Margin="5,0,0,0" Name="chkbWinAuth" Width="140">Windows Integrated</CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+                        <Label Margin="0,0,50,0">User:</Label>
+                        <TextBox Name="tbUser" Width="160" Text="sysop" IsEnabled="{Binding ElementName=chkbWinAuth, Path=IsChecked, Converter={StaticResource InverseBooleanConverter}}" ></TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5">
+                        <Label Margin="0,0,23,0">Password:</Label>
+                        <PasswordBox Name="tbPwd" Width="160" IsEnabled="{Binding ElementName=chkbWinAuth, Path=IsChecked, Converter={StaticResource InverseBooleanConverter}}" Password="xscm"></PasswordBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5">
+                        <CheckBox Margin="5,0,0,0" Name="chkbReqFT" Width="140">Request FullText</CheckBox>
+                    </StackPanel>
+                    <ListBox Name="lbDataSource" Grid.Row="5"></ListBox>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

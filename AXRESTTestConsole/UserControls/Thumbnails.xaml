@@ -1,0 +1,46 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.Thumbnails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+                        <TextBlock Name="tbCurrent" ></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                        <Label>Page Start:</Label>
+                        <TextBox Margin="63,0" Name="tbPageStart" Width="240">1</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+                        <Label>Page End:</Label>
+                        <TextBox Margin="68,0" Name="tbPageEnd" Width="240">5</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5">
+                        <Label>Thumbnail Width:</Label>
+                        <TextBox Margin="25,0" Name="tbThumbnailWidth" Width="240">0</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5">
+                        <Label>Thumbnail Height:</Label>
+                        <TextBox Margin="22,0" Name="tbThumbnailHeight" Width="240">0</TextBox>
+                    </StackPanel>
+                    <ListBox Name="lbResults" Grid.Row="5" MouseDoubleClick="lbResults_MouseDoubleClick"></ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

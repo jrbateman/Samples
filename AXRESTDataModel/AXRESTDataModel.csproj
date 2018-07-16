@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A3B34C25-F053-4E9D-95E6-F07F36E2037E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XtenderSolutions.AXRESTDataModel</RootNamespace>
+    <AssemblyName>XtenderSolutions.AXRESTDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AXApp.cs" />
+    <Compile Include="AXAppAttributesDefinitions.cs" />
+    <Compile Include="AXBatch.cs" />
+    <Compile Include="AXBatchPages.cs" />
+    <Compile Include="AXDataSource.cs" />
+    <Compile Include="AXDataSources.cs" />
+    <Compile Include="AXDataType.cs" />
+    <Compile Include="AXDoc.cs" />
+    <Compile Include="AXDocIndex.cs" />
+    <Compile Include="AXDocODMA.cs" />
+    <Compile Include="AXDocPages.cs" />
+    <Compile Include="AXDocRevision.cs" />
+    <Compile Include="AXFieldAttributesCollection.cs" />
+    <Compile Include="AXFormOverlay.cs" />
+    <Compile Include="AXPermissionDefinitions.cs" />
+    <Compile Include="AXQuery.cs" />
+    <Compile Include="AXQueryResult.cs" />
+    <Compile Include="AXReport.cs" />
+    <Compile Include="AXRESTDataModelConvert.cs" />
+    <Compile Include="AXRESTMediaTypes.cs" />
+    <Compile Include="AXRubberStamp.cs" />
+    <Compile Include="AXUser.cs" />
+    <Compile Include="Error.cs" />
+    <Compile Include="HomeDocument.cs" />
+    <Compile Include="KeyValueCollection.cs" />
+    <Compile Include="LinkedResources.cs" />
+    <Compile Include="AXRESTLinkRelations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

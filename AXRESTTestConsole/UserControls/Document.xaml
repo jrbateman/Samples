@@ -1,0 +1,108 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.Document"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="69*"/>
+                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="515*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Name="lbDoc" Grid.ColumnSpan="3"></ListBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5" Grid.ColumnSpan="3">
+                        <Button Name="btnThumbnail" Width="240" Click="btnThumbnail_Click">Thumbnails</Button>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Post">
+                <Grid Name="postGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="0"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+                        <RadioButton Name="rbCreateDocument" GroupName="createTypeGroup" VerticalAlignment="Bottom"  Click="rbCreateDocument_Click" IsChecked="True">Create Document</RadioButton>
+                        <RadioButton Margin="10,0,0,0" Name="rbBatchIndex" VerticalAlignment="Bottom"  GroupName="createTypeGroup" Click="rbBatchIndex_Click" >Batch Index</RadioButton>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                        <Label  VerticalAlignment="Bottom" HorizontalAlignment="Left">Batches:</Label>
+                        <ComboBox VerticalAlignment="Bottom" HorizontalAlignment="Left" Name="cbBatches" Width="240"></ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+                        <CheckBox Name="chkbIgnoreDuplicateIndex" IsChecked="False" Margin="10,5,0,0">Ignore Duplicate Index</CheckBox>
+                        <CheckBox Name="chkbIgnoreDlsViolation" IsChecked="False" Margin="10,5,0,0">Ignore DLS Violation</CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5">
+                        <Label>Batch Page Number:</Label>
+                        <TextBox Margin="5,0" Name="tbBatchPageNumber" Width="100">0</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5">
+                        <Label>Target Doc ID:</Label>
+                        <TextBox Margin="30,0" Name="tbTargetDocId" Width="100">0</TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5">
+                        <Button Name="btnAddBinFile" Click="btnAddBinFile_Click" >Add Bin</Button>
+                        <Button Margin="10,0,0,0" Name="btnAddAnnoFile" Click="btnAddAnnoFile_Click" >Add Annotation</Button>
+                        <Button Margin="10,0,0,0" Name="btnAddTextViewFile" Click="btnAddTextViewFile_Click" >Add TextView</Button>
+                        <Button Margin="10,0,0,0" Name="btnDeleteFile" Click="btnDeleteFile_Click" >Delete</Button>
+                        <Button Margin="10,0,0,0" Name="btnClearFiles" Click="btnClearFiles_Click" >Clear</Button>
+                    </StackPanel>
+                    <ListBox Grid.Row="6" Name="lbFiles"></ListBox>
+                    <StackPanel Orientation="Horizontal" Grid.Row="7" Margin="5">
+                        <Label>Field:</Label>
+                        <ComboBox Name="cbFields" Width="240"></ComboBox>
+                        <Label>Value:</Label>
+                        <TextBox Name="tbValue" Width="240" KeyDown="tbValue_KeyDown" ></TextBox>
+                        <Button Name="btnAddQI" Click="btnAddQI_Click" Margin="10,0,0,0">Add</Button>
+                        <Button Name="btnDeleteQI" Click="btnDeleteQI_Click" Margin="10,0,0,0">Delete</Button>
+                        <Button Name="btnClearQI" Click="btnClearQI_Click" Margin="10,0,0,0">Clear</Button>
+                    </StackPanel>
+                    <ListBox Name="lbqueryIndexes" Grid.Row="8">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Field}" />
+                                    <Label Content=":  " />
+                                    <Label Content="{Binding Value}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabPut" Header="Put">
+                <Grid Name="putGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+                        <RadioButton Name="rbSubmitFTJob" GroupName="createTypeGroup" VerticalAlignment="Bottom"  IsChecked="True">Submit FullText Job</RadioButton>
+                        <RadioButton Margin="10,0,0,0" Name="rbSubmitOCRJob" VerticalAlignment="Bottom"  GroupName="createTypeGroup" >Submit OCR Job</RadioButton>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabDelete" Header="Delete">
+                
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

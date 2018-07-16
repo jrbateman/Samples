@@ -1,0 +1,30 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.FormOverlays"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <DataGrid Grid.Row="1" Name="dgFormOverlays" AutoGenerateColumns="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="FormType" Binding="{Binding FormType}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="RatioX" Binding="{Binding RatioX}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="RatioY" Binding="{Binding RatioY}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Top" Binding="{Binding Top}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Left" Binding="{Binding Left}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="LPI" Binding="{Binding LPI}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="CPI" Binding="{Binding CPI}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Orientation" Binding="{Binding Orientation}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Unit" Binding="{Binding Unit}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

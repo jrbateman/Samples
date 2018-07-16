@@ -1,0 +1,69 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.Rendition"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="5">
+                        <TextBlock Name="tbCurrent" ></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                        <Label>Media Type:</Label>
+                        <ComboBox Margin="107,0" Name="cbMediaTypes" SelectedIndex="0" Width="240">
+                            
+                        </ComboBox>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+                        <Label>Sub Page:</Label>
+                        <TextBox Margin="119,0" Name="tbSubPage" Text="1" Width="240">
+                        </TextBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="5">
+                        <Label>FormOverlay Option:</Label>
+                        <ComboBox Margin="60,0" Name="cbFormOverlayOptions" SelectedIndex="0" Width="240">
+                            <ComboBoxItem>None</ComboBoxItem>
+                            <ComboBoxItem>Text</ComboBoxItem>
+                            <ComboBoxItem>Image</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="5">
+                        <Label>Annotation Redaction Options:</Label>
+                        <ComboBox Margin="7,0" Name="cbAnnoRedactionOptions" SelectedIndex="0" Width="240">
+                            <ComboBoxItem>Normal</ComboBoxItem>
+                            <ComboBoxItem>HideAll</ComboBoxItem>
+                            <ComboBoxItem>RedactionOnly</ComboBoxItem>
+                            <ComboBoxItem>RedactionOnlyHideAll</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="5">
+                        <Label>ClientProfile:</Label>
+                        <ComboBox Margin="103,0" Name="cbClientProfile" SelectedIndex="0" Width="240">
+                            <ComboBoxItem>0</ComboBoxItem>
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                        </ComboBox>
+                    </StackPanel>
+                    <ListBox Name="lbRenderResults" Grid.Row="6" MouseDoubleClick="lbRenderResults_MouseDoubleClick"></ListBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

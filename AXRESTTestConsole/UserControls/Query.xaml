@@ -1,0 +1,66 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.Query"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <ListBox Name="lbQuery" Grid.Row="1" ></ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Put">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="35"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="160"/>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="5">
+                        <CheckBox Name="IsPublic" IsChecked="False" Margin="10,5,0,0">Available to all users</CheckBox>
+                        <CheckBox Name="IncludePreRevisions" IsChecked="False" Margin="10,5,0,0">Include previous document revisions</CheckBox>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="5">
+                        <Label>Field:</Label>
+                        <ComboBox Name="cbFields" Width="150"></ComboBox>
+                        <Label>Value:</Label>
+                        <TextBox Name="tbValue" Width="150" KeyDown="tbValue_KeyDown" ></TextBox>
+                        <Button Name="btnAddQI" Click="btnAddQI_Click" Margin="3,0">Add</Button>
+                        <Button Name="btnDeleteQI" Click="btnDeleteQI_Click" Margin="3,0">Delete</Button>
+                        <Button Name="btnClearQI" Click="btnClearQI_Click" Margin="3,0">Clear</Button>
+                    </StackPanel>
+                    <ListBox Name="lbqueryIndexes" Grid.Row="3">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Label Content="{Binding Field}" />
+                                    <Label Content=":  " />
+                                    <Label Content="{Binding Value}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+
+                    <my:FullTextOptions x:Name="ftOptions" Grid.Row="4"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Delete">
+            </TabItem>
+        </TabControl>
+        <Label Margin="0,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">Queries:</Label>
+        <ComboBox VerticalAlignment="Top" HorizontalAlignment="Left" Name="cbQueries" Width="240" Margin="60,30,0,0"></ComboBox>
+    </Grid>
+</my:BaseUserControl>

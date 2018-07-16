@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{212F720D-AE96-4203-82DC-5790B370E97A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AXRESTTestConsole</RootNamespace>
+    <AssemblyName>AXRESTTestConsole</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="UserControls\DocumentIndex.xaml.cs">
+      <DependentUpon>DocumentIndex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ExtendedDataTable.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\AdhocQueryResults.xaml.cs">
+      <DependentUpon>AdhocQueryResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AppAttributes.xaml.cs">
+      <DependentUpon>AppAttributes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AppFields.xaml.cs">
+      <DependentUpon>AppFields.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Application.xaml.cs">
+      <DependentUpon>Application.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Applications.xaml.cs">
+      <DependentUpon>Applications.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\AutoIndex.xaml.cs">
+      <DependentUpon>AutoIndex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BaseUserControl.cs" />
+    <Compile Include="UserControls\Batch.xaml.cs">
+      <DependentUpon>Batch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Batches.xaml.cs">
+      <DependentUpon>Batches.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BatchPage.xaml.cs">
+      <DependentUpon>BatchPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BatchPages.xaml.cs">
+      <DependentUpon>BatchPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\CAQ.xaml.cs">
+      <DependentUpon>CAQ.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataFormat.xaml.cs">
+      <DependentUpon>DataFormat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataFormats.xaml.cs">
+      <DependentUpon>DataFormats.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataSource.xaml.cs">
+      <DependentUpon>DataSource.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataSources.xaml.cs">
+      <DependentUpon>DataSources.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataType.xaml.cs">
+      <DependentUpon>DataType.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DataTypes.xaml.cs">
+      <DependentUpon>DataTypes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Document.xaml.cs">
+      <DependentUpon>Document.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentIndexes.xaml.cs">
+      <DependentUpon>DocumentIndexes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentPage.xaml.cs">
+      <DependentUpon>DocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentPages.xaml.cs">
+      <DependentUpon>DocumentPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentPageVersion.xaml.cs">
+      <DependentUpon>DocumentPageVersion.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentPageVersions.xaml.cs">
+      <DependentUpon>DocumentPageVersions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentRevision.xaml.cs">
+      <DependentUpon>DocumentRevision.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentRevisions.xaml.cs">
+      <DependentUpon>DocumentRevisions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DocumentWorkingCopy.xaml.cs">
+      <DependentUpon>DocumentWorkingCopy.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\DSQueries.xaml.cs">
+      <DependentUpon>DSQueries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FormOverlays.xaml.cs">
+      <DependentUpon>FormOverlays.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FullTextOptions.xaml.cs">
+      <DependentUpon>FullTextOptions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FullTextQuery.xaml.cs">
+      <DependentUpon>FullTextQuery.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\HomeDocument.xaml.cs">
+      <DependentUpon>HomeDocument.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\KeyRef.xaml.cs">
+      <DependentUpon>KeyRef.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ODMAProperty.xaml.cs">
+      <DependentUpon>ODMAProperty.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Permissions.xaml.cs">
+      <DependentUpon>Permissions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Queries.xaml.cs">
+      <DependentUpon>Queries.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Query.xaml.cs">
+      <DependentUpon>Query.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QueryFields.xaml.cs">
+      <DependentUpon>QueryFields.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\QueryResults.xaml.cs">
+      <DependentUpon>QueryResults.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Rendition.xaml.cs">
+      <DependentUpon>Rendition.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Report.xaml.cs">
+      <DependentUpon>Report.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReportPage.xaml.cs">
+      <DependentUpon>ReportPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ReportPages.xaml.cs">
+      <DependentUpon>ReportPages.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\RubberStamps.xaml.cs">
+      <DependentUpon>RubberStamps.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SelectIndex.xaml.cs">
+      <DependentUpon>SelectIndex.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Thumbnails.xaml.cs">
+      <DependentUpon>Thumbnails.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\User.xaml.cs">
+      <DependentUpon>User.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XAMLConverter.cs" />
+    <Page Include="UserControls\DocumentIndex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Global.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UserControls\AdhocQueryResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AppAttributes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AppFields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Application.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Applications.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\AutoIndex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Batch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Batches.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BatchPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\BatchPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CAQ.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataFormat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataFormats.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataSource.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataSources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataType.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DataTypes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Document.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentIndexes.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="UserControls\DocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentPageVersion.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentPageVersions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentRevision.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentRevisions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DocumentWorkingCopy.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\DSQueries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FormOverlays.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FullTextOptions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\FullTextQuery.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\HomeDocument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\KeyRef.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ODMAProperty.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Permissions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Queries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Query.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QueryFields.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\QueryResults.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Rendition.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Report.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ReportPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ReportPages.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\RubberStamps.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\SelectIndex.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\Thumbnails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\User.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AXRESTClient\AXRESTClient.csproj">
+      <Project>{6e191a8c-84cd-41ef-ad1c-1587ce962112}</Project>
+      <Name>AXRESTClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AXRESTDataModel\AXRESTDataModel.csproj">
+      <Project>{a3b34c25-f053-4e9d-95e6-f07f36e2037e}</Project>
+      <Name>AXRESTDataModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ReadMe.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

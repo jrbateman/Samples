@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="AXRESTTestConsole.UserControls.FullTextOptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="170" d:DesignWidth="468">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <CheckBox Name="cbFTOptions" Grid.Row="0">Full Text</CheckBox>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <Label>Operation:</Label>
+            <RadioButton Name="rbOperationAnd" GroupName="ftOperations" Margin="21,6,0,0" IsChecked="True" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">And</RadioButton>
+            <RadioButton Name="rbOperationOr" GroupName="ftOperations" Margin="39,6,0,0" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">Or</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <Label>Search Type:</Label>
+            <RadioButton Name="rbSearchTypeAll"  GroupName="ftSearchType" Margin="10,6,0,0" IsChecked="True" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">All Words</RadioButton>
+            <RadioButton Name="rbSearchTypeAny"  GroupName="ftSearchType" Margin="10,6,0,0" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">Any Words</RadioButton>
+            <RadioButton Name="rbSearchTypeExact"  GroupName="ftSearchType" Margin="10,6,0,0" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">Exact Phrase</RadioButton>
+            <RadioButton Name="rbSearchTypeExpression"  GroupName="ftSearchType" Margin="10,6,0,0" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">Expression</RadioButton>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Orientation="Horizontal">
+            <Label>Value:</Label>
+            <TextBox Name="tbValue" Width="180" Height="25" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}"></TextBox>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal">
+            <CheckBox Margin="5,0" Name="cbThesaurus" IsChecked="False" IsEnabled="{Binding ElementName=cbFTOptions, Path=IsChecked}">Thesaurus</CheckBox>
+        </StackPanel>
+    </Grid>
+</UserControl>

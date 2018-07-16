@@ -1,0 +1,66 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.DocumentRevisions"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+      xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+      d:DesignHeight="400" d:DesignWidth="600">
+
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="25"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Orientation="Horizontal" Grid.Row="0">
+                        <Label>Current Revision: </Label>
+                        <TextBox Name="txtCurrentRevision" IsReadOnly="True" Width="100" Margin="2.5"></TextBox>
+                    </StackPanel>
+                    <DataGrid Name="dgDocRevisions" AutoGenerateColumns="False" IsReadOnly="True" Grid.Row="1">
+                        <DataGrid.Resources>
+                            <Style TargetType="DataGridRow">
+                                <EventSetter Event="MouseDoubleClick" Handler="dgDocRevisions_MouseDoubleClick"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="RevisionNumber" Binding="{Binding RevisionNumber}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="CheckinBy" Binding="{Binding CheckinBy}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="CheckinDate" Binding="{Binding CheckinDate}"></DataGridTextColumn>
+                            <DataGridTextColumn Header="CheckinComment" Binding="{Binding CheckinComment}"></DataGridTextColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            
+            <TabItem Header="Post">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition Height="30"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="150"/>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">Checkin Action:</Label>
+                    <ComboBox Grid.Row="0" Grid.Column="1" Name="cbAction" Width="340" Margin="2.5" SelectedIndex="0">
+                        <ComboBoxItem>1 (MajorRevision)</ComboBoxItem>
+                        <ComboBoxItem>2 (MinorRevision)</ComboBoxItem>
+                        <ComboBoxItem>3 (SameRevision)</ComboBoxItem>
+                    </ComboBox>
+                    <CheckBox Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Center" Name="chIsFinal">Final Revision</CheckBox>
+                    <Label Grid.Row="2" Grid.Column="0" VerticalAlignment="Center">Checkin Comment:</Label>
+                    <TextBox Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" Width="340" Height="25" Name="txtComment"></TextBox>
+                    <CheckBox Grid.Row="3" Grid.ColumnSpan="2" VerticalAlignment="Center" Name="chFulltext">Submit full-text</CheckBox>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>

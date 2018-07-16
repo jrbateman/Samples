@@ -1,0 +1,29 @@
+﻿<my:BaseUserControl x:Class="AXRESTTestConsole.UserControls.DataTypes"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             xmlns:my="clr-namespace:AXRESTTestConsole.UserControls"  
+             xmlns:convert="clr-namespace:AXRESTTestConsole.Converters" 
+             d:DesignHeight="400" d:DesignWidth="600">
+    <Grid>
+        <TabControl Name="Tabs">
+            <TabItem Header="Get">
+                <DataGrid Name="dgDataTypes" AutoGenerateColumns="False" IsReadOnly="True" >
+                    <DataGrid.Resources>
+                        <Style TargetType="DataGridRow">
+                            <EventSetter Event="MouseDoubleClick" Handler="dgDataTypes_MouseDoubleClick"/>
+                        </Style>
+                    </DataGrid.Resources>
+                    <DataGrid.Columns>
+
+                        <DataGridTextColumn Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="Name" Binding="{Binding Name}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="IsCustom" Binding="{Binding IsCustom}"></DataGridTextColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</my:BaseUserControl>
