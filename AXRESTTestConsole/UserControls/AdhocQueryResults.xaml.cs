@@ -21,7 +21,8 @@ namespace AXRESTTestConsole.UserControls
     /// <summary>
     /// Interaction logic for AdhocQueryResults.xaml
     /// </summary>
-    public partial class AdhocQueryResults : BaseUserControl
+    public partial class 
+        AdhocQueryResults : BaseUserControl
     {
         public AdhocQueryResults()
         {
